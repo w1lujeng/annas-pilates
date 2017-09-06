@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var workoutCtrl = require('../../controllers/workouts');
-var singleWorkout = require('../../models/singleWorkout');
+var singleWorkout = require('../../models/workout');
 /*---------- Protected Routes ----------*/
 // index and workouts? //check aouth
-// router.get('/', workoutCtrl.index);
+router.get('/', workoutCtrl.index);
 router.post('/', workoutCtrl.create);
 // router.get('/', workoutCtrl.index);
+//is this another?
 
 /*----- Helper Functions -----*/
 

@@ -6,6 +6,7 @@ import {
   Route
 } from 'react-router-dom';
 import userService from '../../utils/userService';
+import workoutService from '../../utils/workoutService'
 import AboutPage from '../AboutPage/AboutPage';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -22,34 +23,27 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null
+      user: userService.getUser()
     }
   }
 
   /*---------- Callback Methods ----------*/
+          /*-------- Auth --------*/
   handleLogout = () => {
     userService.logout();
     this.setState({user: null});
   }
-
   handleSignup = () => {
     this.setState({user: userService.getUser()});
   }
-
   handleLogin = () => {
     this.setState({user: userService.getUser()});
   }
-
-  //workout function
-  handleNewWorkout = (workout) => {
-    this.setState({workout: workout});
-    
-  }
-
+  
   /*---------- Lifecycle Methods ----------*/
   componentDidMount() {
-    let user = userService.getUser();
-    this.setState({user});
+
+
   }
 
   render() {
@@ -92,10 +86,7 @@ class App extends Component {
               }/>
 
               <Route exact path='/activity' render={(props) => 
-                <ActivityTracker total={"5"}
-                                reformer={"3"}
-                                mat={"2"}
-                                goal={"100"}
+                <ActivityTracker workouts={this.state.workouts}
                 />
               }/> 
 

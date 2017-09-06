@@ -10,4 +10,4 @@ var workoutSchema = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model('singleWorkout', workoutSchema);
+module.exports = mongoose.model('Workout', workoutSchema);
