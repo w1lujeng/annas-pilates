@@ -4,7 +4,6 @@ var jwt = require('jsonwebtoken');
 var SECRET = process.env.SECRET;
 
 function create(req, res) {
-  console.log('req.body =', req.body)
   Workout.create(req.body)
   .then(workout => {
     User.findById(req.user._id).then(user => {
@@ -17,23 +16,27 @@ function create(req, res) {
   .catch(err => {
     res.json({error: err});
   });
-}
+}//create
 
 function index(req, res) {
   User.findById(req.user._id).populate('workouts')
   .then(user => {
     res.json(user.workouts);
   });
-}
+}//index
 
-// function deleteWorkout(req, res) {
-//   Workou.findById(req.params.id, (err, workout) => {
-//     workout.remove();
-//     res.redirect('/workouts');
-//   });
-// }
+function deleteWorkout(req, res) {
+  User.findById(req.user._id, (err, user) => {
+    user.workouts.remove(req.params.id);
+    user.save(err => {
+      res.status(200).json(err);
+    })
+  })
+}//delete
+
 
 module.exports = {
   create,
-  index
+  index,
+  deleteWorkout
 }

@@ -12,6 +12,8 @@ function getWorkoutsForUser() {
         )
 }
 
+
 export default {
-  getWorkoutsForUser
+  getWorkoutsForUser,
+  // deleteWorkout
 }

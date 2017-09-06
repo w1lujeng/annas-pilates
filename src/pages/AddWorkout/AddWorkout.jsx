@@ -45,8 +45,6 @@ export class AddWorkout extends Component {
   }
 
   addWorkout(e) {
-    console.log('add workout')
-    console.log('this.state =', this.state)
     e.preventDefault()
     API.fetchAddWorkout(this.state)
         .then((workout) => {
@@ -57,9 +55,19 @@ export class AddWorkout extends Component {
           console.log('err =', err)
         })
   }
-//component did mout props addworkout with fetch
-//write a method in 
-//dummy data
+
+  deleteWorkout(e) {
+    e.preventDefault()
+    API.fetchDeleteWorkout(this.state)
+        .then((workout) => {
+          this.props.history.push('/activity');
+
+        })
+        .catch(err => {
+          console.log('err =', err)
+        })
+  }
+
 
   render() {
     return (
