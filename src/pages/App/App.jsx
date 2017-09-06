@@ -6,17 +6,19 @@ import {
   Route
 } from 'react-router-dom';
 import userService from '../../utils/userService';
-import workoutService from '../../utils/workoutService'
+
 import AboutPage from '../AboutPage/AboutPage';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import ActivityTracker from '../ActivityTracker/ActivityTracker'
-import Workouts from '../Workouts/Workouts';
+
 import AddWorkout from '../AddWorkout/AddWorkout';
 import Menu from '../../components/Menu/Menu';
-import NavBar from '../../components/NavBar/NavBar'
-import Calender from 'react-icons/lib/fa/calendar'
-import ThumbsUp from 'react-icons/lib/ti/thumbs-up'
+import NavBar from '../../components/NavBar/NavBar';
+// import Calender from 'react-icons/lib/fa/calendar';
+// import ThumbsUp from 'react-icons/lib/ti/thumbs-up';
+// import Workouts from '../Workouts/Workouts';
+// import workoutService from '../../utils/workoutService'
 
 class App extends Component {
   
@@ -81,7 +83,7 @@ class App extends Component {
               }/>
               
               <Route exact path='/addworkout' render={(props) =>
-                <AddWorkout 
+                <AddWorkout history={props.history}
                 />
               }/>
 
@@ -91,37 +93,10 @@ class App extends Component {
               }/> 
 
 
-              <Route exact path='/workouts' render={(props) => 
-                <Workouts days={
-                  [
-                    {
-                      date: new Date("9/1/2017"),              
-                      gym: "Equinox",
-                      reformer: true,
-                      mat: false
-                    },
-                    {
-                      date: new Date("9/2/2017"),
-                      gym: "Balanced Concepts Pilates",
-                      reformer: true,
-                      mat: false
-                    },
-                    {
-                      date: new Date("9/3/2017"),
-                      gym: "Core Align Studios",
-                      reformer: false,
-                      mat: true
-                    },
-                    {
-                      date: new Date("9/4/2017"),
-                      gym: "Mission street Yoga",
-                      reformer: true,
-                      mat: false
-                    },
-                  ]
-                }
+              {/* <Route exact path='/workouts' render={(props) => 
+                <Workouts days={[]}
                 />
-              }/>   
+              }/>    */}
 
           }         
           </Switch>

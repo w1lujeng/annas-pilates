@@ -33,10 +33,9 @@ export class ActivityTracker extends Component {
       <div className="workouts">
         <div className="total-workouts">
           <span>{}</span>
-          <Calender />
-          <span> Days</span>
+          
         </div>
-        <h3>Reformer Workouts</h3>
+        <h3><Calender /> Reformer Workouts</h3>
         {this.state.workouts.filter(w => w.reformer).map((w, i) =>
           <div key={i} className="reformer">
             <p>{w.date}</p>
@@ -45,7 +44,7 @@ export class ActivityTracker extends Component {
             <p>{w.reformer}</p>
           </div>
         )}
-        <h3>Mat Workouts</h3>
+        <h3><Calender /> Mat Workouts</h3>
         {this.state.workouts.filter(w => w.mat).map((w, i) =>
           <div key={i} className="mat">
             <p>{w.date}</p>
@@ -55,13 +54,13 @@ export class ActivityTracker extends Component {
           </div>
         )}
         <div className="goal">
-          <span> You've reached   
+          <h3> You've reached   
             {this.calcGoalProgress(
               this.props.total,
               this.props.goal
-            )} of your goal 
-            </span>
-            <ThumbsUp />
+            )} of your goal <ThumbsUp />
+            </h3>
+            
         </div>
       </div>
     )

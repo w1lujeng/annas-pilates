@@ -50,11 +50,8 @@ export class AddWorkout extends Component {
     e.preventDefault()
     API.fetchAddWorkout(this.state)
         .then((workout) => {
-          console.log("workout =", workout)
-          // call method on app
-          this.setState({
-              workout
-            })
+          this.props.history.push('/activity');
+
         })
         .catch(err => {
           console.log('err =', err)
@@ -104,6 +101,7 @@ export class AddWorkout extends Component {
       </div>
       
       <button type="submit">Add Workout</button>
+      
     </form>
   </div>
     )
