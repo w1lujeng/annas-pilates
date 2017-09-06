@@ -11,6 +11,7 @@ export class AddWorkout extends Component {
       mat: false
     }
   }
+  // let _resort, _date, _powder, _backcountry
 
   updateDate = (e) => {
     this.setState({
@@ -26,13 +27,20 @@ export class AddWorkout extends Component {
 
   updateReformer = (e) => {
     this.setState({
-      reformer: e.target.value
+      reformer: e.target.checked
     })
   }
 
   updateMat = (e) => {
     this.setState({
-      mat: e.target.value
+      mat: e.target.checked
+    })
+  }
+
+  //new
+  updateWorkout = (e) => {
+    this.setState({
+      
     })
   }
 
@@ -43,7 +51,8 @@ export class AddWorkout extends Component {
     API.fetchAddWorkout(this.state)
         .then((workout) => {
           console.log("workout =", workout)
-            this.setState({
+          // call method on app
+          this.setState({
               workout
             })
         })
@@ -51,6 +60,9 @@ export class AddWorkout extends Component {
           console.log('err =', err)
         })
   }
+//component did mout props addworkout with fetch
+//write a method in 
+//dummy data
 
   render() {
     return (
@@ -61,7 +73,7 @@ export class AddWorkout extends Component {
       <input id="date" 
              type="text" 
              required
-             defaultValue={"06-06-1966"} 
+             defaultValue={"mm-dd-yyyy"} 
                 onChange={(e)=>{this.updateDate(e)}}
                 value={this.props.newDate}/>
 
@@ -74,17 +86,21 @@ export class AddWorkout extends Component {
                 value={this.props.newGym}/>
       
       <div>
+      
         <label htmlFor="Reformer">Reformer</label>
         <input id="reformer" 
                type="checkbox" 
-               defaultChecked={this.reformer}/>
+                onChange={(e)=>{this.updateReformer(e)}}
+                checked={this.state.reformer}
+        />
       </div>
-
       <div>
         <label htmlFor="Reformer">Mat</label>
         <input id="mat" 
                type="checkbox" 
-               defaultChecked={this.mat}/>
+                onChange={(e)=>{this.updateMat(e)}}
+                checked={this.state.mat}
+        />
       </div>
       
       <button type="submit">Add Workout</button>

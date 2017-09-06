@@ -40,6 +40,11 @@ class App extends Component {
     this.setState({user: userService.getUser()});
   }
 
+  //workout function
+  handleNewWorkout = (workout) => {
+    this.setState({workout: workout});
+    
+  }
 
   /*---------- Lifecycle Methods ----------*/
   componentDidMount() {
@@ -99,7 +104,8 @@ class App extends Component {
                 <Workouts days={
                   [
                     {
-                      date: new Date("9/1/2017"),               gym: "Equinox",
+                      date: new Date("9/1/2017"),              
+                      gym: "Equinox",
                       reformer: true,
                       mat: false
                     },

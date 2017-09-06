@@ -9,6 +9,7 @@ export class ActivityTracker extends Component {
     return this.percentToDecimal(total/goal)
   }
   render() {
+
     return (
       <div className="workouts">
         <div className="total-workouts">
