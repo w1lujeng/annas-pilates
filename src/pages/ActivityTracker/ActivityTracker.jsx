@@ -50,7 +50,7 @@ class ActivityTracker extends Component {
             <p>{w.gym}</p>
             <p>{w.mat}</p>
             <p>{w.reformer}</p>
-            <button onClick={() => this.deleteThisWorkout(w)}>
+            <button type="submit" className="btn btn-danger" onClick={() => this.deleteThisWorkout(w)}>
             Delete Workout</button>
           </div>//reformer
         )}
@@ -62,7 +62,7 @@ class ActivityTracker extends Component {
             <p>{w.gym}</p>
             <p>{w.mat}</p>
             <p>{w.reformer}</p>
-            <button onClick={() => this.deleteThisWorkout(w)}>
+            <button type="submit" className="btn btn-danger" onClick={() => this.deleteThisWorkout(w)}>
               Delete Workout</button>mat
           </div>//mat
         )}

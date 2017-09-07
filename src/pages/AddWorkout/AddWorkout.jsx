@@ -108,7 +108,7 @@ export class AddWorkout extends Component {
         />
       </div>
       
-      <button type="submit">Add Workout</button>
+      <button type="submit" className="btn btn-success">Add Workout</button>
       
     </form>
   </div>
