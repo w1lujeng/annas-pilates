@@ -3,7 +3,8 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from 'react-router-dom';
 import userService from '../../utils/userService';
 
@@ -83,16 +84,19 @@ class App extends Component {
               }/>
               
 
-              //if user is logged in
-              <Route exact path='/addworkout' render={(props) => 
-                <AddWorkout history={props.history}
-                />
-              }/>
+              <Route exact path='/addworkout' render={(props) => (
+                userService.getUser() ?
+                < AddWorkout history={props.history} />
+                :
+                <Redirect to ='./login' />
+              )}/>
 
-              <Route exact path='/activity' render={(props) => 
-                <ActivityTracker workouts={this.state.workouts}
-                />
-              }/> 
+              <Route exact path='/activity' render={(props) => (
+                userService.getUser() ?
+                <ActivityTracker workouts={this.state.workouts} />
+                :
+                <Redirect to ='./login' />
+              )}/> 
 
 
               {/* <Route exact path='/workouts' render={(props) => 
