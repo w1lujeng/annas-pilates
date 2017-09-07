@@ -43,35 +43,39 @@ class ActivityTracker extends Component {
         
         <div className="total-workouts" ></div>
        
-        <h3><Calender /> Reformer Workouts</h3>
-        {this.state.workouts.filter(w => w.reformer).map((w, i) =>
-          <div key={i} className="reformer">
-            <p>{w.date}</p>
-            <p>{w.gym}</p>
-            <p>{w.mat}</p>
-            <p>{w.reformer}</p>
-            <button type="submit" className="btn btn-danger" onClick={() => this.deleteThisWorkout(w)}>
-            Delete Workout</button>
-          </div>//reformer
-        )}
+          <h3><Calender /> Reformer Workouts</h3>
+          {this.state.workouts.filter(w => w.reformer).map((w, i) =>
+            <div key={i} className="reformer">
+              <p>{w.date}</p>
+              <p>{w.gym}</p>
+              <p>{w.mat}</p>
+              <p>{w.reformer}</p>
+              <button type="submit" className="btn btn-danger" onClick={() => this.deleteThisWorkout(w)}>
+              Delete Workout</button>
+            </div>//reformer
+          )}
         
-        <h3><Calender /> Mat Workouts</h3>
-        {this.state.workouts.filter(w => w.mat).map((w, i) =>
-          <div key={i} className="mat">
-            <p>{w.date}</p>
-            <p>{w.gym}</p>
-            <p>{w.mat}</p>
-            <p>{w.reformer}</p>
-            <button type="submit" className="btn btn-danger" onClick={() => this.deleteThisWorkout(w)}>
-              Delete Workout</button>mat
-          </div>//mat
-        )}
-        <div className="goal">
-          <h3> You've reached   
-            {this.calcGoalProgress(
-              this.state.workouts.length
-            )} of your goal <ThumbsUp />
-            </h3>        
+          <h3><Calender /> Mat Workouts</h3>
+          {this.state.workouts.filter(w => w.mat).map((w, i) =>
+            <div key={i} className="mat">
+              <p>{w.date}</p>
+              <p>{w.gym}</p>
+              <p>{w.mat}</p>
+              <p>{w.reformer}</p>
+              <button type="submit" className="btn btn-danger" onClick={() => this.deleteThisWorkout(w)}>
+                Delete Workout</button>mat
+            </div>//mat
+          )}
+
+          <div className="goal">
+            <span> You've reached  
+              <span> </span> 
+              {this.calcGoalProgress(
+                this.state.workouts.length
+              )}
+              <span> </span>
+            of your goal <ThumbsUp />
+            </span>>        
         </div>
       
 
