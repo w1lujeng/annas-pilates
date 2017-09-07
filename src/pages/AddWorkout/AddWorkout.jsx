@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import API from '../../API/API'
+import DatePicker from 'react'
 
 export class AddWorkout extends Component {
   constructor () {
@@ -76,7 +77,11 @@ export class AddWorkout extends Component {
     <form className="addWorkout" onSubmit={(e)=>{this.addWorkout(e)}}>
       
 
-
+    {/* <DatePicker
+    inline
+    selected={this.state.startDate}
+    onChange={this.handleChange}
+/> */} 
 
 
       <label htmlFor="date">Date</label>

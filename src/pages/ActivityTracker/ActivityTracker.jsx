@@ -3,6 +3,9 @@ import Calender from 'react-icons/lib/fa/calendar';
 import ThumbsUp from 'react-icons/lib/ti/thumbs-up';
 import workoutService from '../../utils/workoutService';
 import API from '../../API/API';
+import './ActivityTracker.css'
+
+
 
 class ActivityTracker extends Component {
   constructor() {
@@ -26,6 +29,11 @@ class ActivityTracker extends Component {
     return this.percentToDecimal(workouts/20);
   }
 
+  // var GoalProgress =
+  // {this.calcGoalProgress(
+  //   this.state.workouts.length
+  // )}
+
   deleteThisWorkout(workout) {
     console.log(workout)
     var idx = this.state.workouts.findIndex(w => w._id === workout._id);
@@ -36,50 +44,66 @@ class ActivityTracker extends Component {
     API.fetchDeleteWorkout(workout);
   }
 
+  
+  
+  
+ 
+    
+
+
+
+
   render() {
 
     return (
-      <div className="workouts">
-        
-        <div className="total-workouts" ></div>
-       
-          <h3><Calender /> Reformer Workouts</h3>
-          {this.state.workouts.filter(w => w.reformer).map((w, i) =>
-            <div key={i} className="reformer">
-              <p>{w.date}</p>
-              <p>{w.gym}</p>
-              <p>{w.mat}</p>
-              <p>{w.reformer}</p>
-              <button type="submit" className="btn btn-danger" onClick={() => this.deleteThisWorkout(w)}>
-              Delete Workout</button>
-            </div>//reformer
-          )}
-        
-          <h3><Calender /> Mat Workouts</h3>
-          {this.state.workouts.filter(w => w.mat).map((w, i) =>
-            <div key={i} className="mat">
-              <p>{w.date}</p>
-              <p>{w.gym}</p>
-              <p>{w.mat}</p>
-              <p>{w.reformer}</p>
-              <button type="submit" className="btn btn-danger" onClick={() => this.deleteThisWorkout(w)}>
-                Delete Workout</button>mat
-            </div>//mat
-          )}
+      <div>            
+            <div className="row">    
+              <div className="col-lg-6 text-center">         
+                <h2><Calender /> Reformer Workouts</h2>
+                {this.state.workouts.filter(w => w.reformer).map((w, i) =>
+                  <div key={i} >
+                    <p>{w.date}
+                      
+                      
+                      </p>
+                    <p>{w.gym}</p>
+                    <p>{w.mat}</p>
+                    <p>{w.reformer}</p>
+                    <button type="submit" className="btn btn-danger btn-sm" onClick={() => this.deleteThisWorkout(w)}>
+                    <span className="glyphicons glyphicons-remove-circle"></span></button>
+                  </div>//reformer
 
-          <div className="goal">
+                )}
+                </div>
+
+              <div className="col-lg-6 text-center">         
+                <h2><Calender /> Mat Workouts</h2>
+                {this.state.workouts.filter(w => w.mat).map((w, i) =>
+                  <div key={i} className="col-lg-6">
+                    <p>{w.date}</p>
+                    <p>{w.gym}</p>
+                    <p>{w.mat}</p>
+                    <p>{w.reformer}</p>
+                    <button type="submit" className="btn btn-danger btn-sm" onClick={() => this.deleteThisWorkout(w)}>
+                    <span className="glyphicons glyphicons-remove-circle"></span></button>
+                  </div>//mat
+                  )}
+            </div>
+          </div>
+
+            
+
+          <footer className="footer-stats">
             <span> You've reached  
-              <span> </span> 
+              &nbsp;&nbsp;
               {this.calcGoalProgress(
                 this.state.workouts.length
               )}
-              <span> </span>
+              &nbsp;&nbsp;
             of your goal <ThumbsUp />
-            </span>>        
+            </span>        
+          </footer>        
         </div>
-      
-
-      </div>
     )//return
   }//render
 }//component

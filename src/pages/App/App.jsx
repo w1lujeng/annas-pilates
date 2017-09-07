@@ -52,42 +52,50 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div className="App-header">
-          <h1>Welcome to Anna's Pilates</h1>
+        <div className="jumbotron-container">
+          <div className="jumbotron">
+            <div className="container text-center">
+              <h1>Welcome to Anna's Pilates</h1>
+              <p>Pilates and personal training</p>
+            </div>
+          </div>
         </div>
-        
-          <Router>
-            <div>
-            <NavBar user={this.state.user} handleLogout={this.handleLogout}/>
             
-            <Switch>
-              
-              <Route exact path='/' render={
-                () =>
-                  <AboutPage                          
-                  />
-                }/>  
-              <Route exact path='/about' render={
-                () =>
-                  <AboutPage                          
-                  />
-                }/>  
+            {/* navbar */}
+          <Router>
+            <div className="about col-md-10 col-md-push-1">
+                <NavBar user={this.state.user} handleLogout={this.handleLogout}/>
+                
+                <Switch>
+                  
+                  <Route exact path='/' render={
+                    () =>
+                      <AboutPage                          
+                      />
+                    }/>  
+                  <Route exact path='/about' render={
+                    () =>
+                      <AboutPage                          
+                      />
+                    }/>  
 
-              <Route exact path='/signup' render={(props) => 
-                <SignupPage                               
-                {...props}
-                  handleSignup={this.handleSignup}
-                />
-              }/> 
+                  <Route exact path='/signup' render={(props) => 
+                    <SignupPage                               
+                    {...props}
+                      handleSignup={this.handleSignup}
+                    />
+                  }/> 
 
-              <Route exact path='/login' render={(props) => 
-                <LoginPage
-                  // user={this.state.user}
-                  {...props}
-                  handleLogin={this.handleLogin}
-                />
-              }/>
+                  <Route exact path='/login' render={(props) => 
+                    <LoginPage
+                      // user={this.state.user}
+                      {...props}
+                      handleLogin={this.handleLogin}
+                    />
+                  }/>
+                
               
+               {/* fucntionality */}
 
               <Route exact path='/addworkout' render={(props) => (
                 userService.getUser() ?
@@ -103,15 +111,14 @@ class App extends Component {
                 <Redirect to ='./login' />
               )}/> 
 
-
-              {/* <Route exact path='/workouts' render={(props) => 
-                <Workouts days={[]}
-                />
-              }/>    */}
-
           }         
           </Switch>
-          <Menu />
+
+          <footer className="container-fluid text-center">
+            <Menu />
+          </footer>
+
+          
           </div> 
         </Router>
       </div>
