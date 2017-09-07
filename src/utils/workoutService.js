@@ -15,5 +15,4 @@ function getWorkoutsForUser() {
 
 export default {
   getWorkoutsForUser,
-  // deleteWorkout
 }
