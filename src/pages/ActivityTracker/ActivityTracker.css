@@ -1,6 +1,13 @@
 .total-workouts {
   /* justify-content: space-between; */
 }
+.mat {
+  text-align: center;
+}
+
+.h2 {
+  align-content: center;
+}
 
 .footer-stats {
   font-size: 2em;

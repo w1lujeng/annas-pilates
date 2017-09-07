@@ -3,8 +3,8 @@ import Calender from 'react-icons/lib/fa/calendar';
 import ThumbsUp from 'react-icons/lib/ti/thumbs-up';
 import workoutService from '../../utils/workoutService';
 import API from '../../API/API';
-import './ActivityTracker.css'
-
+import './ActivityTracker.css';
+import DelWorkout from 'react-icons/lib/fa/trash-o';
 
 
 class ActivityTracker extends Component {
@@ -29,10 +29,6 @@ class ActivityTracker extends Component {
     return this.percentToDecimal(workouts/20);
   }
 
-  // var GoalProgress =
-  // {this.calcGoalProgress(
-  //   this.state.workouts.length
-  // )}
 
   deleteThisWorkout(workout) {
     console.log(workout)
@@ -44,50 +40,58 @@ class ActivityTracker extends Component {
     API.fetchDeleteWorkout(workout);
   }
 
-  
-  
-  
- 
-    
-
-
-
-
   render() {
 
     return (
       <div>            
             <div className="row">    
-              <div className="col-lg-6 text-center">         
+              <div className="col-lg-6 text-center reformer">         
                 <h2><Calender /> Reformer Workouts</h2>
                 {this.state.workouts.filter(w => w.reformer).map((w, i) =>
                   <div key={i} >
-                    <p>{w.date}
-                      
-                      
-                      </p>
+                  {/* <DatePicker
+                      inline
+                      selected={this.state.startDate}
+                      onChange={this.handleChange}
+                  /> */}
+                    
+                    <p>{w.date} &nbsp;&nbsp;
+                      <button type="submit" 
+                        className="btn btn-danger btn-sm" 
+                        onClick={() => this.deleteThisWorkout(w)}>
+                        < DelWorkout/>
+                      </button>
+                    </p>
                     <p>{w.gym}</p>
-                    <p>{w.mat}</p>
-                    <p>{w.reformer}</p>
-                    <button type="submit" className="btn btn-danger btn-sm" onClick={() => this.deleteThisWorkout(w)}>
-                    <span className="glyphicons glyphicons-remove-circle"></span></button>
+                    {/* <p>{w.mat}</p>
+                    <p>{w.reformer}</p> */}
+                    
+                    
                   </div>//reformer
 
                 )}
                 </div>
 
-              <div className="col-lg-6 text-center">         
+              <div className="col-lg-6 text-center mat">         
                 <h2><Calender /> Mat Workouts</h2>
                 {this.state.workouts.filter(w => w.mat).map((w, i) =>
                   <div key={i} className="col-lg-6">
-                    <p>{w.date}</p>
-                    <p>{w.gym}</p>
-                    <p>{w.mat}</p>
-                    <p>{w.reformer}</p>
-                    <button type="submit" className="btn btn-danger btn-sm" onClick={() => this.deleteThisWorkout(w)}>
-                    <span className="glyphicons glyphicons-remove-circle"></span></button>
-                  </div>//mat
-                  )}
+                    {/* <DatePicker
+                      inline
+                      selected={this.state.startDate}
+                      onChange={this.handleChange}
+                  /> */}
+                    
+                  <p>{w.date} &nbsp;&nbsp;
+                    <button type="submit" 
+                      className="btn btn-danger btn-sm" 
+                      onClick={() => this.deleteThisWorkout(w)}>
+                      < DelWorkout/>
+                    </button>
+                  </p>
+                  <p>{w.gym}</p>
+                </div>//mat
+                )}
             </div>
           </div>
 

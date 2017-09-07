@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import API from '../../API/API'
 import DatePicker from 'react'
-
+import AddWorkoutButton from 'react-icons/lib/fa/plus'
 export class AddWorkout extends Component {
   constructor () {
     super() 
@@ -73,7 +73,7 @@ export class AddWorkout extends Component {
   render() {
     return (
   <div>
-    <h1>Add a workout</h1>
+    <h1></h1>
     <form className="addWorkout" onSubmit={(e)=>{this.addWorkout(e)}}>
       
 
@@ -91,13 +91,7 @@ export class AddWorkout extends Component {
              defaultValue={"mm-dd-yyyy"} 
                 onChange={(e)=>{this.updateDate(e)}}
                 value={this.props.newDate}/>
-
-
-                 
-
-
                 
-
       <label htmlFor="gym">Gym</label>
       <input id="gym" 
              type="text" 
@@ -124,7 +118,7 @@ export class AddWorkout extends Component {
         />
       </div>
       
-      <button type="submit" className="btn btn-success">Add Workout</button>
+      <button type="submit" className="btn btn-success"><AddWorkoutButton/></button>
       
     </form>
   </div>
