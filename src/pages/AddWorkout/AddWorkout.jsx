@@ -74,6 +74,11 @@ export class AddWorkout extends Component {
   <div>
     <h1>Add a workout</h1>
     <form className="addWorkout" onSubmit={(e)=>{this.addWorkout(e)}}>
+      
+
+
+
+
       <label htmlFor="date">Date</label>
       <input id="date" 
              type="text" 
@@ -81,6 +86,12 @@ export class AddWorkout extends Component {
              defaultValue={"mm-dd-yyyy"} 
                 onChange={(e)=>{this.updateDate(e)}}
                 value={this.props.newDate}/>
+
+
+                 
+
+
+                
 
       <label htmlFor="gym">Gym</label>
       <input id="gym" 
