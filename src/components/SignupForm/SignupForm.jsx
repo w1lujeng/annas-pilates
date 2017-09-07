@@ -70,8 +70,8 @@ class SignupForm extends Component {
           </div>
         </form>
       </div>
-    );
-  }
-};
+    );//return
+  }//render
+};//component
 
 export default SignupForm;

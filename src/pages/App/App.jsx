@@ -61,7 +61,7 @@ class App extends Component {
             
             <Switch>
               
-              <Route exact path='/about' render={
+              <Route exact path='/' render={
                 () =>
                   <AboutPage                          
                   />
@@ -82,7 +82,9 @@ class App extends Component {
                 />
               }/>
               
-              <Route exact path='/addworkout' render={(props) =>
+
+              //if user is logged in
+              <Route exact path='/addworkout' render={(props) => 
                 <AddWorkout history={props.history}
                 />
               }/>

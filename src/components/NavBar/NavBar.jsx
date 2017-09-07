@@ -11,7 +11,7 @@ const NavBar = (props) => {
       
     </nav> :
     <nav className="navbar fixed-top" >
-      <Link to="/activity" className='NavBar-link' >About Page</Link>
+      <Link to="/about" className='NavBar-link' >About Page</Link>
       &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <Link to="/login" className='NavBar-link glyphicon glyphicon-log-in'>LOG IN</Link>
       &nbsp;&nbsp;|&nbsp;&nbsp;
@@ -22,8 +22,8 @@ const NavBar = (props) => {
     <div className='NavBar'>
       {nav}
     </div>
-  );
-};
+  );//return
+};//component
 
 export default NavBar;
 

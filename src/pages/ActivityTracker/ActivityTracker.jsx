@@ -21,7 +21,6 @@ class ActivityTracker extends Component {
     return((decimal * 100) + '%');
   }
 
-  //notworking
   calcGoalProgress(workouts) {
 
     return this.percentToDecimal(workouts/20);
@@ -53,7 +52,7 @@ class ActivityTracker extends Component {
             <p>{w.reformer}</p>
             <button onClick={() => this.deleteThisWorkout(w)}>
             Delete Workout</button>
-          </div>
+          </div>//reformer
         )}
         
         <h3><Calender /> Mat Workouts</h3>
@@ -64,22 +63,21 @@ class ActivityTracker extends Component {
             <p>{w.mat}</p>
             <p>{w.reformer}</p>
             <button onClick={() => this.deleteThisWorkout(w)}>
-              Delete Workout</button>
-          </div>
+              Delete Workout</button>mat
+          </div>//mat
         )}
-//notworking
         <div className="goal">
           <h3> You've reached   
             {this.calcGoalProgress(
               this.state.workouts.length
             )} of your goal <ThumbsUp />
-            </h3>         
+            </h3>        
         </div>
       
 
       </div>
-    )
-  }
-}
+    )//return
+  }//render
+}//component
 
 export default ActivityTracker;
