@@ -7,6 +7,8 @@ var usersCtrl = require('../../controllers/users');
 router.post('/signup', usersCtrl.signup);
 router.post('/login', usersCtrl.login);
 
+//about router?
+
 
 
 /*---------- Protected Routes ----------*/
