@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import API from '../../API/API'
-import DatePicker from 'react'
 import AddWorkoutButton from 'react-icons/lib/fa/plus'
+import DayPicker from 'react-day-picker';
 export class AddWorkout extends Component {
   constructor () {
     super() 
@@ -12,7 +12,7 @@ export class AddWorkout extends Component {
       mat: false
     }
   }
-  // let _resort, _date, _powder, _backcountry
+
 
   updateDate = (e) => {
     this.setState({
@@ -75,13 +75,8 @@ export class AddWorkout extends Component {
   <div>
     <h1></h1>
     <form className="addWorkout" onSubmit={(e)=>{this.addWorkout(e)}}>
-      
 
-    {/* <DatePicker
-    inline
-    selected={this.state.startDate}
-    onChange={this.handleChange}
-/> */} 
+
 
 
       <label htmlFor="date">Date</label>

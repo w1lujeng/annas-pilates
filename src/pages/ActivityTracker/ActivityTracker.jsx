@@ -5,6 +5,7 @@ import workoutService from '../../utils/workoutService';
 import API from '../../API/API';
 import './ActivityTracker.css';
 import DelWorkout from 'react-icons/lib/fa/trash-o';
+import * as moment from 'moment';
 
 
 class ActivityTracker extends Component {
@@ -40,22 +41,20 @@ class ActivityTracker extends Component {
     API.fetchDeleteWorkout(workout);
   }
 
+  formatDate(date) {
+    return moment(date).format('MM/DD/YY')
+  }
+
   render() {
 
     return (
       <div>            
             <div className="row">    
               <div className="col-lg-6 text-center reformer">         
-                <h2>Reformer Workouts</h2>
+                <h3>Reformer Workouts</h3>
                 {this.state.workouts.filter(w => w.reformer).map((w, i) =>
                   <div key={i} >
-                  {/* <DatePicker
-                      inline
-                      selected={this.state.startDate}
-                      onChange={this.handleChange}
-                  /> */}
-                    
-                    <p>{w.date} &nbsp;&nbsp;
+                    <p>{this.formatDate(w.date)} &nbsp;&nbsp;
                       <button type="submit" 
                         className="btn btn-danger btn-sm" 
                         onClick={() => this.deleteThisWorkout(w)}>
@@ -70,16 +69,10 @@ class ActivityTracker extends Component {
                 </div>
 
               <div className="col-lg-6 text-center mat">         
-                <h2>Mat Workouts</h2>
+                <h3>Mat Workouts</h3>
                 {this.state.workouts.filter(w => w.mat).map((w, i) =>
-                  <div key={i} className="col-lg-6">
-                    {/* <DatePicker
-                      inline
-                      selected={this.state.startDate}
-                      onChange={this.handleChange}
-                  /> */}
-                    
-                  <p>{w.date} &nbsp;&nbsp;
+                  <div key={i} className="col-lg-6">                
+                  <p>{this.formatDate(w.date)} &nbsp;&nbsp;
                     <button type="submit" 
                       className="btn btn-danger btn-sm" 
                       onClick={() => this.deleteThisWorkout(w)}>
