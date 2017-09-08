@@ -14,9 +14,9 @@ const NavBar = (props) => {
     </nav> :
     <nav className="navbar fixed-top" >
       
-      <Link to="/login" className='NavBar-link glyphicon glyphicon-log-in'>LOG IN</Link>
+      <Link to="/login" className='NavBar-link glyphicon glyphicon-log-in'>&nbsp;LOG IN</Link>
       &nbsp;&nbsp;|&nbsp;&nbsp;
-      <Link to="/signup" className='NavBar-link glyphicon glyphicon-user'>SIGN UP</Link>
+      <Link to="/signup" className='NavBar-link glyphicon glyphicon-user'>&nbsp;SIGN UP</Link>
     </nav>;
 
   return (
