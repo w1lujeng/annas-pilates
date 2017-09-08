@@ -3,14 +3,19 @@
 
  is a single page app, created with the following technologies
 
-* Mongo
-* Express
-* React
-* Node
-* HTML
-* CSS
-* Bootstrap
-* Heroku
+___
+![logo](https://i.imgur.com/v1hCW50.png)
+#### Node 
+#### Express
+#### HTML
+#### CSS
+#### JavaScript
+#### Foundation
+#### Mongo DB
+#### API
+####  Token Authorization
+*****
+
 
 
 
@@ -65,3 +70,7 @@ No unresolved issures at the moment of writing this document, but LOTS and LOTS 
     * private music lessons
     
 
+![About](About.png)
+![AddWorkout](AddWorkout.png)
+![Login](Login.png)
+![Activity](Activity.png)
