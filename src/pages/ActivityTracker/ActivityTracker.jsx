@@ -46,7 +46,7 @@ class ActivityTracker extends Component {
       <div>            
             <div className="row">    
               <div className="col-lg-6 text-center reformer">         
-                <h2><Calender /> Reformer Workouts</h2>
+                <h2>Reformer Workouts</h2>
                 {this.state.workouts.filter(w => w.reformer).map((w, i) =>
                   <div key={i} >
                   {/* <DatePicker
@@ -63,17 +63,14 @@ class ActivityTracker extends Component {
                       </button>
                     </p>
                     <p>{w.gym}</p>
-                    {/* <p>{w.mat}</p>
-                    <p>{w.reformer}</p> */}
-                    
-                    
+               
                   </div>//reformer
 
                 )}
                 </div>
 
               <div className="col-lg-6 text-center mat">         
-                <h2><Calender /> Mat Workouts</h2>
+                <h2>Mat Workouts</h2>
                 {this.state.workouts.filter(w => w.mat).map((w, i) =>
                   <div key={i} className="col-lg-6">
                     {/* <DatePicker
