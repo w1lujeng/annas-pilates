@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import API from '../../API/API'
 import AddWorkoutButton from 'react-icons/lib/fa/plus'
-import DayPicker from 'react-day-picker';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+
+import 'react-datepicker/dist/react-datepicker.css';
+
 export class AddWorkout extends Component {
   constructor () {
     super() 
     this.state = {
-      date: "",
+      date: moment(),
       gym: "",
       reformer: false,
       mat: false
@@ -14,9 +18,9 @@ export class AddWorkout extends Component {
   }
 
 
-  updateDate = (e) => {
+  updateDate = (momentDate) => {
     this.setState({
-      date: e.target.value
+      date: momentDate
     })
   }
 
@@ -80,12 +84,11 @@ export class AddWorkout extends Component {
 
 
       <label htmlFor="date">Date</label>
-      <input id="date" 
-             type="text" 
-             required
-             defaultValue={"mm-dd-yyyy"} 
-                onChange={(e)=>{this.updateDate(e)}}
-                value={this.props.newDate}/>
+      <DatePicker
+        id="date" 
+        selected={this.state.date}
+        onChange={(e) => this.updateDate(e)}
+      />
                 
       <label htmlFor="gym">Gym</label>
       <input id="gym" 
