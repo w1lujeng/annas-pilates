@@ -68,10 +68,10 @@ class ActivityTracker extends Component {
                 )}
                 </div>
 
-              <div className="col-lg-6 text-center mat">         
+              <div className="col-lg-6 text-center reformer">         
                 <h3>Mat Workouts</h3>
                 {this.state.workouts.filter(w => w.mat).map((w, i) =>
-                  <div key={i} className="col-lg-6">                
+                  <div key={i}>                
                   <p>{this.formatDate(w.date)} &nbsp;&nbsp;
                     <button type="submit" 
                       className="btn btn-danger btn-sm" 
